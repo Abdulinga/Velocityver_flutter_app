@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelocityVer System Diagrams - Chapter 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.6.1/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .diagram-section {
+            margin-bottom: 50px;
+            background: #f8f9fc;
+            border-radius: 12px;
+            padding: 30px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .diagram-title {
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .diagram-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow-x: auto;
+        }
+        
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            min-height: 400px;
+        }
+        
+        .description {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4fd;
+            border-radius: 8px;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .nav-btn.active {
+            background: #2c3e50;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            .diagram-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VelocityVer System Diagrams</h1>
+            <p>Chapter 3: System Analysis, Design, Development, and Evaluation</p>
+        </div>
+        
+        <div class="content">
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showDiagram('agile')">Agile Process</button>
+                <button class="nav-btn" onclick="showDiagram('problems')">System Problems</button>
+                <button class="nav-btn" onclick="showDiagram('dfd0')">DFD Level 0</button>
+                <button class="nav-btn" onclick="showDiagram('dfd1')">DFD Level 1</button>
+                <button class="nav-btn" onclick="showDiagram('architecture')">System Architecture</button>
+                <button class="nav-btn" onclick="showDiagram('usecase')">Use Cases</button>
+                <button class="nav-btn" onclick="showDiagram('erd')">Database ERD</button>
+                <button class="nav-btn" onclick="showDiagram('workflow')">Development Workflow</button>
+            </div>
+
+            <!-- Figure 3.1: Agile Iteration Process -->
+            <div id="agile" class="diagram-section">
+                <div class="diagram-title">Figure 3.1: Agile Iteration Process</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        graph TD
+                            A[Project Start] --> B[Iteration 1:<br/>Foundation & Architecture]
+                            B --> C[Objectives:<br/>• Client-server framework<br/>• Flutter + Flask setup<br/>• SQLite integration<br/>• Architecture validation]
+                            C --> D[Deliverables:<br/>• Basic authentication<br/>• Database schema<br/>• API framework]
+                            D --> E[Iteration 2:<br/>Offline-First Implementation]
+                            E --> F[Objectives:<br/>• Local data storage<br/>• Intelligent caching<br/>• Sync protocols<br/>• Core offline features]
+                            F --> G[Deliverables:<br/>• Offline functionality<br/>• Data synchronization<br/>• Conflict resolution]
+                            G --> H[Iteration 3:<br/>Role-Based Interfaces]
+                            H --> I[Objectives:<br/>• User interfaces<br/>• Access controls<br/>• Role permissions<br/>• Security implementation]
+                            I --> J[Deliverables:<br/>• Student dashboard<br/>• Lecturer interface<br/>• Admin panel<br/>• RBAC system]
+                            J --> K[Iteration 4:<br/>Integration & Testing]
+                            K --> L[Objectives:<br/>• System integration<br/>• Performance optimization<br/>• Comprehensive testing<br/>• User acceptance]
+                            L --> M[Final Deliverables:<br/>• Complete system<br/>• Test results<br/>• Documentation<br/>• Deployment ready]
+                            
+                            style A fill:#e1f5fe
+                            style B fill:#f3e5f5
+                            style E fill:#f3e5f5
+                            style H fill:#f3e5f5
+                            style K fill:#f3e5f5
+                            style M fill:#e8f5e8
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> The Agile development methodology was implemented in four distinct iterations, each building upon the previous one. This iterative approach allowed for continuous refinement and validation of the offline-first architecture while ensuring all objectives were systematically achieved.
+                </div>
+            </div>
+
+            <!-- Figure 3.2: Problems in Existing Resource Sharing Methods -->
+            <div id="problems" class="diagram-section" style="display:none;">
+                <div class="diagram-title">Figure 3.2: Problems in Existing Resource Sharing Methods</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        graph TD
+                            A[Existing System Problems] --> B[Manual Distribution]
+                            A --> C[Email Sharing]
+                            A --> D[Cloud Platforms]
+                            A --> E[LMS Systems]
+                            A --> F[Social Media/Messaging]
+                            
+                            B --> B1[Time Consuming]
+                            B --> B2[Cost Intensive]
+                            B --> B3[Limited Reach]
+                            B --> B4[Version Control Issues]
+                            
+                            C --> C1[File Size Limits]
+                            C --> C2[Inbox Clutter]
+                            C --> C3[No Organization]
+                            C --> C4[Security Risks]
+                            
+                            D --> D1[Internet Dependency]
+                            D --> D2[Data Costs]
+                            D --> D3[Privacy Concerns]
+                            D --> D4[Poor User Experience]
+                            
+                            E --> E1[High Implementation Cost]
+                            E --> E2[Complex Setup]
+                            E --> E3[Limited Offline Features]
+                            E --> E4[Poor Mobile Experience]
+                            
+                            F --> F1[Informal Structure]
+                            F --> F2[No Access Control]
+                            F --> F3[Data Loss Risk]
+                            F --> F4[Mixed Content Types]
+                            
+                            style A fill:#ffcdd2
+                            style B fill:#fff3e0
+                            style C fill:#f3e5f5
+                            style D fill:#e8f5e8
+                            style E fill:#e3f2fd
+                            style F fill:#f1f8e9
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> This diagram illustrates the major problems identified in existing academic resource sharing methods. These limitations provided the justification for developing VelocityVer as an offline-first solution that addresses connectivity, cost, security, and usability challenges.
+                </div>
+            </div>
+
+            <!-- DFD Level 0 -->
+            <div id="dfd0" class="diagram-section" style="display:none;">
+                <div class="diagram-title">Data Flow Diagram Level 0 - Context Diagram</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        graph TD
+                            Student[Student] --> |Login, Browse, Download| VV[VelocityVer System]
+                            Lecturer[Lecturer] --> |Upload, Manage Resources| VV
+                            Admin[Administrator] --> |User Management, System Config| VV
+                            SuperAdmin[Super Administrator] --> |Full System Access, Backup| VV
+                            
+                            VV --> |Course Materials, Notifications| Student
+                            VV --> |Usage Analytics, Student Progress| Lecturer
+                            VV --> |System Reports, User Data| Admin
+                            VV --> |System Logs, Backup Status| SuperAdmin
+                            
+                            DB[(SQLite Database)] --> |Data Storage/Retrieval| VV
+                            VV --> |Data Persistence| DB
+                            
+                            FileSystem[Local File Storage] --> |File Access| VV
+                            VV --> |File Management| FileSystem
+                            
+                            style VV fill:#667eea,color:white
+                            style Student fill:#e8f5e8
+                            style Lecturer fill:#fff3e0
+                            style Admin fill:#f3e5f5
+                            style SuperAdmin fill:#ffebee
+                            style DB fill:#e3f2fd
+                            style FileSystem fill:#f1f8e9
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> The context diagram shows the VelocityVer system at the highest level, illustrating the main external entities (users) and their interactions with the system, along with data stores for persistence and file management.
+                </div>
+            </div>
+
+            <!-- DFD Level 1 -->
+            <div id="dfd1" class="diagram-section" style="display:none;">
+                <div class="diagram-title">Data Flow Diagram Level 1 - System Processes</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        graph TD
+                            Student[Student] --> |Credentials| P1[1.0 Authentication Process]
+                            Lecturer[Lecturer] --> |Credentials| P1
+                            Admin[Administrator] --> |Credentials| P1
+                            
+                            P1 --> |Valid Session| P2[2.0 Authorization & Role Management]
+                            P1 --> |User Data| D1[(Users Database)]
+                            D1 --> |User Info| P1
+                            
+                            P2 --> |Permissions| P3[3.0 Resource Management]
+                            P2 --> |Role Data| D2[(Roles & Permissions)]
+                            D2 --> |Role Info| P2
+                            
+                            Student --> |Browse Request| P3
+                            Lecturer --> |Upload Files| P3
+                            Admin --> |System Config| P3
+                            
+                            P3 --> |File Operations| P4[4.0 File Storage Management]
+                            P3 --> |Metadata| D3[(Files & Courses)]
+                            D3 --> |File Info| P3
+                            
+                            P4 --> |Sync Request| P5[5.0 Offline Sync Management]
+                            P4 --> |Files| D4[(Local File Storage)]
+                            D4 --> |File Access| P4
+                            
+                            P5 --> |Sync Status| P6[6.0 Monitoring & Logging]
+                            P5 --> |Sync Data| D5[(Sync Metadata)]
+                            D5 --> |Sync Info| P5
+                            
+                            P6 --> |Reports| Admin
+                            P6 --> |Logs| D6[(Activity Logs)]
+                            
+                            P3 --> |Resources| Student
+                            P3 --> |Analytics| Lecturer
+                            
+                            style P1 fill:#e3f2fd
+                            style P2 fill:#f1f8e9
+                            style P3 fill:#fff3e0
+                            style P4 fill:#fce4ec
+                            style P5 fill:#e8eaf6
+                            style P6 fill:#f3e5f5
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> Level 1 DFD breaks down the VelocityVer system into six major processes: Authentication, Authorization, Resource Management, File Storage, Offline Synchronization, and Monitoring. Each process interacts with specific data stores and handles particular aspects of the system functionality.
+                </div>
+            </div>
+
+            <!-- Figure 3.4: System Architecture Diagram -->
+            <div id="architecture" class="diagram-section" style="display:none;">
+                <div class="diagram-title">Figure 3.4: System Architecture Diagram</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        graph TB
+                            subgraph "Client Layer"
+                                UI[User Interface<br/>Student Dashboard<br/>Lecturer Interface<br/>Admin Panel]
+                                BL[Business Logic<br/>Authentication Manager<br/>File Manager<br/>Sync Engine]
+                                CL[Caching Layer<br/>Intelligent Caching<br/>Offline Storage<br/>Metadata Cache]
+                                LS[Local Storage<br/>SQLite Database]
+                            end
+                            
+                            subgraph "Network Layer"
+                                SD[Server Discovery<br/>UDP Broadcasting<br/>Service Detection<br/>Auto-Connect]
+                                API[REST API Communication<br/>HTTP/HTTPS<br/>JSON Data Exchange]
+                            end
+                            
+                            subgraph "Server Layer"
+                                AUTH[Authentication Service<br/>User Verification<br/>Token Management]
+                                RBAC[Role-Based Access Control<br/>Permission Manager<br/>Resource Access]
+                                FM[File Management Service<br/>Upload/Download<br/>Version Control]
+                                SYNC[Synchronization Service<br/>Conflict Resolution<br/>Data Consistency]
+                            end
+                            
+                            subgraph "Data Layer"
+                                SDB[(Server Database<br/>SQLite<br/>User Data<br/>File Metadata<br/>System Config)]
+                                FS[File System<br/>Document Storage<br/>Media Files<br/>Backup Storage]
+                            end
+                            
+                            UI --> BL
+                            BL --> CL
+                            CL --> LS
+                            BL --> SD
+                            SD --> API
+                            API --> AUTH
+                            API --> RBAC
+                            API --> FM
+                            API --> SYNC
+                            AUTH --> SDB
+                            RBAC --> SDB
+                            FM --> SDB
+                            FM --> FS
+                            SYNC --> SDB
+                            
+                            style UI fill:#e3f2fd
+                            style BL fill:#e8f5e8
+                            style CL fill:#fff3e0
+                            style LS fill:#f3e5f5
+                            style AUTH fill:#ffebee
+                            style RBAC fill:#e0f2f1
+                            style FM fill:#fce4ec
+                            style SYNC fill:#e8eaf6
+                            style SDB fill:#e1f5fe
+                            style FS fill:#f1f8e9
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> The three-tier architecture shows the separation of concerns between client, server, and data layers. The offline-first design is evident in the local storage and caching components, while the server discovery mechanism enables automatic network configuration.
+                </div>
+            </div>
+
+            <!-- Use Case Diagram -->
+            <div id="usecase" class="diagram-section" style="display:none;">
+                <div class="diagram-title">Use Case Diagram - VelocityVer System</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        graph TD
+                            Student[Student] --> UC1((Login to System))
+                            Student --> UC2((Browse Courses))
+                            Student --> UC3((Download Resources))
+                            Student --> UC4((Submit Assignments))
+                            Student --> UC5((View Announcements))
+                            Student --> UC6((Sync Offline Data))
+                            
+                            Lecturer[Lecturer] --> UC1
+                            Lecturer --> UC7((Upload Resources))
+                            Lecturer --> UC8((Manage Course Content))
+                            Lecturer --> UC9((Create Assignments))
+                            Lecturer --> UC10((View Student Submissions))
+                            Lecturer --> UC11((Monitor Usage Analytics))
+                            Lecturer --> UC6
+                            
+                            Admin[Administrator] --> UC1
+                            Admin --> UC12((Manage Users))
+                            Admin --> UC13((Configure Academic Structure))
+                            Admin --> UC14((Generate Reports))
+                            Admin --> UC15((Monitor System Performance))
+                            Admin --> UC16((Backup System Data))
+                            
+                            SuperAdmin[Super Administrator] --> UC1
+                            SuperAdmin --> UC12
+                            SuperAdmin --> UC13
+                            SuperAdmin --> UC14
+                            SuperAdmin --> UC15
+                            SuperAdmin --> UC16
+                            SuperAdmin --> UC17((System Configuration))
+                            SuperAdmin --> UC18((Security Management))
+                            SuperAdmin --> UC19((Advanced Analytics))
+                            
+                            UC1 -.-> UC20((Verify Credentials))
+                            UC3 -.-> UC21((Check File Permissions))
+                            UC7 -.-> UC22((Validate File Format))
+                            UC12 -.-> UC23((Update User Roles))
+                            
+                            style Student fill:#e8f5e8
+                            style Lecturer fill:#fff3e0
+                            style Admin fill:#f3e5f5
+                            style SuperAdmin fill:#ffebee
+                            style UC1 fill:#e3f2fd
+                            style UC20 fill:#e3f2fd
+                            style UC21 fill:#e3f2fd
+                            style UC22 fill:#e3f2fd
+                            style UC23 fill:#e3f2fd
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> The use case diagram illustrates the functional requirements for each user role in the VelocityVer system. Students focus on accessing resources, Lecturers on content management, Administrators on user management, and Super Administrators on system-wide configuration and security.
+                </div>
+            </div>
+
+            <!-- ERD Diagram -->
+            <div id="erd" class="diagram-section" style="display:none;">
+                <div class="diagram-title">Entity Relationship Diagram (ERD)</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        erDiagram
+                            USERS ||--o{ USER_ROLES : has
+                            ROLES ||--o{ USER_ROLES : assigns
+                            USERS ||--o{ FILES : uploads
+                            USERS ||--o{ ACTIVITY_LOGS : generates
+                            FACULTIES ||--o{ DEPARTMENTS : contains
+                            DEPARTMENTS ||--o{ COURSES : offers
+                            COURSES ||--o{ FILES : stores
+                            COURSES ||--o{ ENROLLMENTS : has
+                            FILES ||--o{ FILE_PERMISSIONS : governed_by
+                            ROLES ||--o{ FILE_PERMISSIONS : defines
+                            FILES ||--o{ SYNC_METADATA : tracks
+                            FILES ||--o{ DEVICE_CACHE : cached_on
+                            USERS ||--o{ DEVICE_CACHE : owns
+                            USERS ||--o{ ENROLLMENTS : enrolled_in
+                            ACADEMIC_LEVELS ||--o{ COURSES : categorizes
+                            ACADEMIC_YEARS ||--o{ COURSES : spans
+                            
+                            USERS {
+                                int user_id PK
+                                string username
+                                string email
+                                string password_hash
+                                string first_name
+                                string last_name
+                                datetime created_at
+                                datetime last_login
+                                boolean is_active
+                            }
+                            
+                            ROLES {
+                                int role_id PK
+                                string role_name
+                                string description
+                                json permissions
+                                datetime created_at
+                            }
+                            
+                            COURSES {
+                                int course_id PK
+                                int department_id FK
+                                int level_id FK
+                                int year_id FK
+                                string course_name
+                                string course_code
+                                string description
+                                int credit_units
+                                datetime created_at
+                            }
+                            
+                            FILES {
+                                int file_id PK
+                                int course_id FK
+                                int uploaded_by FK
+                                string filename
+                                string file_path
+                                string file_type
+                                int file_size
+                                string description
+                                datetime uploaded_at
+                                datetime modified_at
+                                string version
+                            }
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> The ERD shows the complete database schema for VelocityVer, illustrating relationships between users, roles, academic structure (faculties, departments, courses), files, and system metadata. The design supports offline-first architecture with sync metadata and device caching capabilities.
+                </div>
+            </div>
+
+            <!-- Figure 3.6: Development Workflow Diagram -->
+            <div id="workflow" class="diagram-section" style="display:none;">
+                <div class="diagram-title">Figure 3.6: Development Workflow Diagram</div>
+                <div class="diagram-container">
+                    <div class="mermaid">
+                        graph TD
+                            A[Requirements Analysis] --> B[System Design]
+                            B --> C[UI/UX Design in Figma]
+                            C --> D[Database Schema Design]
+                            
+                            D --> E[Frontend Development Flutter/Dart]
+                            D --> F[Backend Development Python Flask]
+                            
+                            E --> G[Unit Testing Flutter Tests]
+                            F --> H[Unit Testing pytest]
+                            
+                            G --> I[Integration Testing]
+                            H --> I
+                            
+                            I --> J[System Testing]
+                            J --> K[Performance Testing]
+                            K --> L[Security Testing]
+                            
+                            L --> M[User Acceptance Testing]
+                            M --> N{UAT Results}
+                            
+                            N -->|Pass| O[Documentation & Deployment]
+                            N -->|Fail| P[Bug Fixes & Improvements]
+                            P --> Q[Regression Testing]
+                            Q --> M
+                            
+                            O --> R[System Deployment]
+                            
+                            S[Version Control Git/GitHub] --> E
+                            S --> F
+                            S --> T[Code Reviews]
+                            T --> I
+                            
+                            U[Continuous Integration Automated Testing] --> G
+                            U --> H
+                            
+                            style A fill:#e3f2fd
+                            style B fill:#e8f5e8
+                            style C fill:#fff3e0
+                            style D fill:#f3e5f5
+                            style E fill:#ffebee
+                            style F fill:#e0f2f1
+                            style O fill:#e8f5e8
+                            style R fill:#c8e6c9
+                            style N fill:#fff3e0
+                    </div>
+                </div>
+                <div class="description">
+                    <strong>Description:</strong> The development workflow shows the systematic approach used to build VelocityVer, from requirements analysis through deployment. The workflow emphasizes testing at multiple levels and includes continuous integration practices to ensure code quality and system reliability.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Mermaid with error handling
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'default',
+            themeVariables: {
+                primaryColor: '#667eea',
+                primaryTextColor: '#2c3e50',
+                primaryBorderColor: '#667eea',
+                lineColor: '#667eea'
+            },
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+
+        function showDiagram(diagramId) {
+            // Hide all diagrams
+            const diagrams = document.querySelectorAll('.diagram-section');
+            diagrams.forEach(diagram => {
+                diagram.style.display = 'none';
+            });
+            
+            // Show selected diagram
+            document.getElementById(diagramId).style.display = 'block';
+            
+            // Update button states
+            const buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Re-render mermaid diagrams for the visible section
+            setTimeout(() => {
+                mermaid.init(undefined, document.querySelector(`#${diagramId} .mermaid`));
+            }, 100);
+        }
+        
+        // Initialize with first diagram visible
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all mermaid diagrams
+            mermaid.init();
+        });
+    </script>
+</body>
+</html>
