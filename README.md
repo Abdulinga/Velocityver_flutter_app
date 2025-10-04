@@ -39,23 +39,8 @@ A cross-platform **offline-first file-sharing system** built with **Flutter** an
 
 ---
 
-## 🖼 Screenshots
 
-(Add your app screenshots here after you capture them)
 
-Example:
-
-```
-assets/screenshots/login.png  
-assets/screenshots/dashboard.png  
-assets/screenshots/files.png  
-```
-
-```markdown
-![Login Screen](assets/screenshots/login.png)  
-![Dashboard](assets/screenshots/dashboard.png)  
-![File Management](assets/screenshots/files.png)  
-```
 
 ---
 
